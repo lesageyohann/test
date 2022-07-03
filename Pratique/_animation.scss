@@ -172,7 +172,7 @@ $clr-btn: #15DEA5;
         transform: scaleX(1);
     }
 }
-.btn6 {
+/*.btn6 {
     &:active {
         & + .progress1{
             & > .progress1__bar1 {
@@ -184,36 +184,64 @@ $clr-btn: #15DEA5;
 .progress1 {
     &__bar1 {
         transform-origin: left;
-        transform: scaleX(0);
+        transform: scaleX(0.5);
         opacity: 0;
     }
 }
+*/
 
 /* keyframe page */
+$prog-bar-dur: 1000ms;
+$prog-bar-delay: 100ms;
 .progress1 {
     &__bar1 {
-        animation: progress-bar1 1000ms;
+        transform-origin: left;
+        transform: scaleX(0.5);
+        animation: progress-bar1 $prog-bar-dur $prog-bar-delay both;
     }
 }
 
 @keyframes progress-bar1{
     0% {
         transform: scaleX(0);
-        opacity: .1;
     }
     17% {
         transform: scaleX(.18);
     }
     24% {
-        transform: scaleX(.4);
+        transform: scaleX(.40);
+        animation-timing-function: cubic-bezier(.9,0,.1,1);
     }
     46% {
         transform: scaleX(.81);
-    }
-    85%,100% {
-        opacity: 1;
+        animation-timing-function: cubic-bezier(.25,0.25,1);
     }
     100% {
         transform: scaleX(1);
+    }
+}
+
+@keyframes cat{
+    0% {
+        transform: translateX(-9999px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+$prog-bar-dur: 1000ms;
+$prog-bar-delay: 150ms;
+$cat-delay: $prog-bar-dur + $prog-bar-delay*2;
+
+.cat {
+    animation: cat 0ms $cat-delay both;
+}
+
+@keyframes cat{
+0% {
+    transform: translateX(-9999px);
+}
+100% {
+    transform: translateX(0);
     }
 }
