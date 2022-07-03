@@ -1,0 +1,53 @@
+.btn {  /* effet grandissant 0.4s a 115% */
+    transform: scale(1);                                                      /* effet 0 */
+    transition: transform 400ms, background-color 300ms 150ms;                /* transition = nom de la propriété + temps + delay*/
+    &:hover{                                                                  /* pseudo class de survol */
+        transform: scale(1.15);                                               /* effet final */
+        background-color: white;
+    }
+}
+
+/* effet ball lie btn */
+.ball{
+    transform: scale(0.1);                                                      /* effet sur taille reduit a 10% */
+    transition: transform 2000ms cubic-bezier(.17,.67,.83,.67);                 /* effet temps de 2s + cubic bezier ( acceleration deceleration ) */
+}
+.btn{
+    &:active + .ball{                                                           /* effet au clic */
+        transform: scale(1.0);                                                  /* effet taille jusqu a 100% */
+    }
+}
+
+
+
+/* effet formulaire */
+$cd-txt: #6300a0;                                           /*variable txt */
+$cd-box: #fff;                                              /*variable box */
+$cd-txt--invalid: #fff;                                     /*variable txt alternatif */
+$cd-danger: #b20a37;
+.form {
+    background-color: green;
+    padding: 10px 10px;
+    border-radius: 10rem;
+    &__group {
+        & input {
+            border: 2px solid $cd-box;
+            border-radius: 100rem;
+            color: $cd-txt;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            outline: none;
+            padding: .5rem 1.5rem;
+            width: 75%;
+            transition: background-color 400ms;                /* nom de la propriété + temps */
+            &:focus {                                          /* effet a la selection clavier / souris */
+                border: 2px solid $cd-txt;
+            }
+            &:not(:focus):invalid{                              /* combinaison d un effet invalid lorque l'objet n est plus focus */
+                background: $cd-danger;
+                border: 2px solid $cd-danger;
+                color: $cd-txt--invalid;
+            }
+        }
+    }
+}

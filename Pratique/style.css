@@ -1,0 +1,360 @@
+@charset "UTF-8";
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  padding-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 75%;
+}
+
+.boxes__base {
+  width: 100px;
+  height: 30px;
+  border: 1px solid;
+  text-align: center;
+  margin: 50px 0px;
+  border-radius: 10rem;
+  padding: 5px 5px 0px 5px;
+}
+
+.boxes--rotDegrees {
+  background-color: mediumaquamarine;
+}
+
+.boxes--rotTurns {
+  background-color: mediumpurple;
+}
+
+.progress {
+  border: 1px solid;
+  height: 20px;
+  width: 400px;
+  margin-left: 20px;
+}
+
+.progress__bar {
+  background-color: mediumpurple;
+  height: 16px;
+  width: 396px;
+  margin: 2px 2px 2px 2px;
+}
+
+.progress1 {
+  border: 1px solid;
+  height: 20px;
+  width: 400px;
+  margin-left: 20px;
+}
+
+.progress1__bar1 {
+  background-color: mediumpurple;
+  height: 16px;
+  width: 396px;
+  margin: 2px 2px 2px 2px;
+}
+
+/* effet bouton */
+.btn {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: background-color 300ms 150ms, -webkit-transform 400ms;
+  transition: background-color 300ms 150ms, -webkit-transform 400ms;
+  transition: transform 400ms, background-color 300ms 150ms;
+  transition: transform 400ms, background-color 300ms 150ms, -webkit-transform 400ms;
+}
+
+.btn:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  background-color: white;
+}
+
+/* effet ball */
+.ball {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: -webkit-transform 2000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: -webkit-transform 2000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: transform 2000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: transform 2000ms cubic-bezier(0.17, 0.67, 0.83, 0.67), -webkit-transform 2000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.btn:active + .ball {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+/* effet formulaire */
+.form {
+  background-color: green;
+  padding: 10px 10px;
+  border-radius: 10rem;
+}
+
+.form__group input {
+  border: 2px solid #fff;
+  border-radius: 100rem;
+  color: #6300a0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  outline: none;
+  padding: .5rem 1.5rem;
+  width: 75%;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+
+.form__group input:focus {
+  border: 2px solid #6300a0;
+}
+
+.form__group input:not(:focus):invalid {
+  background: #b20a37;
+  border: 2px solid #b20a37;
+  color: #fff;
+}
+
+/* effet boop translate */
+.btn2:hover + .boop {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.btn2:hover + .boop span {
+  /*necessite d'un block pour faire une action ou jouer avec display : inline block */
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.boop {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: -webkit-transform 330ms ease-in-out;
+  transition: -webkit-transform 330ms ease-in-out;
+  transition: transform 330ms ease-in-out;
+  transition: transform 330ms ease-in-out, -webkit-transform 330ms ease-in-out;
+  overflow: hidden;
+  /*le texte n'apparaît pas tant qu'il n'est pas dans la boîte*/
+}
+
+.boop span {
+  display: inline-block;
+  /*necessite d'un block pour faire une action ou jouer avec display : inline block */
+  -webkit-transform: translateY(250%);
+          transform: translateY(250%);
+  -webkit-transition: -webkit-transform 280ms ease-out 50ms;
+  transition: -webkit-transform 280ms ease-out 50ms;
+  transition: transform 280ms ease-out 50ms;
+  transition: transform 280ms ease-out 50ms, -webkit-transform 280ms ease-out 50ms;
+}
+
+/* effet rotation */
+.btn3:hover + .boxes > .boxes--rotDegrees {
+  /* rotation en degree point de depart */
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.btn3:hover + .boxes > .boxes--rotTurns {
+  /* rotation en tour point de depart */
+  -webkit-transform: rotate(0turn);
+          transform: rotate(0turn);
+}
+
+.boxes .boxes--rotDegrees {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+  /* rotation en degree point d arrive */
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+
+.boxes .boxes--rotTurns {
+  -webkit-transform: rotate(-1turn);
+          transform: rotate(-1turn);
+  /* rotation en tour point d arrive */
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+
+/* barre de progression */
+.btn4:active + .progress > .progress__bar {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.progress__bar {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  /* deplace le centre de l effet ( mot ou pourcentage )*/
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 4000ms cubic-bezier(0.32, 0, 0.07, 1);
+  transition: -webkit-transform 4000ms cubic-bezier(0.32, 0, 0.07, 1);
+  transition: transform 4000ms cubic-bezier(0.32, 0, 0.07, 1);
+  transition: transform 4000ms cubic-bezier(0.32, 0, 0.07, 1), -webkit-transform 4000ms cubic-bezier(0.32, 0, 0.07, 1);
+}
+
+/* oppacity */
+.btn5 {
+  border-radius: 2rem;
+  background-color: #15DEA5;
+  position: relative;
+  z-index: 1;
+}
+
+.btn5:hover::after {
+  opacity: 1;
+}
+
+.btn5::after {
+  /*pseudo-element */
+  content: "";
+  /* ne pas oublier ! */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #13c794;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 250ms;
+  transition: opacity 250ms;
+}
+
+/* keyframe */
+@-webkit-keyframes progress-bar {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  17% {
+    -webkit-transform: scaleX(0.18);
+            transform: scaleX(0.18);
+  }
+  24% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+  }
+  46% {
+    -webkit-transform: scaleX(0.81);
+            transform: scaleX(0.81);
+  }
+  85%, 100% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@keyframes progress-bar {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  17% {
+    -webkit-transform: scaleX(0.18);
+            transform: scaleX(0.18);
+  }
+  24% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+  }
+  46% {
+    -webkit-transform: scaleX(0.81);
+            transform: scaleX(0.81);
+  }
+  85%, 100% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.btn6:active + .progress1 > .progress1__bar1 {
+  -webkit-animation: progress-bar 1000ms;
+          animation: progress-bar 1000ms;
+}
+
+.progress1__bar1 {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  opacity: 0;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #011c37;
+  color: #de1515;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 1.85rem 3rem;
+  width: 200px;
+  border-radius: 10rem;
+  border: 4px solid #011c37;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  background: #de1515;
+  margin-bottom: 1rem;
+  border-radius: 50px;
+  border: 4px solid #011c37;
+}
+
+.btn2, .btn3, .btn4, .btn6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 1.85rem 3rem;
+  width: 200px;
+  border-radius: 10rem;
+  background-color: purple;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,190 @@
+
+/* effet bouton */
+.btn {
+    transform: scale(1);
+    transition: transform 400ms, background-color 300ms 150ms;
+    &:hover{
+        transform: scale(1.15);
+        background-color: white;
+    }
+}
+
+/* effet ball */
+.ball{
+    transform: scale(0.1);
+    transition: transform 2000ms (cubic-bezier(.17,.67,.83,.67));
+}
+.btn{
+    &:active + .ball{
+        transform: scale(1.0);
+    }
+}
+
+
+/* effet formulaire */
+$cd-txt: #6300a0;
+$cd-box: #fff;
+$cd-txt--invalid: #fff;
+$cd-danger: #b20a37;
+.form {
+    background-color: green;
+    padding: 10px 10px;
+    border-radius: 10rem;
+    &__group {
+        & input {
+            border: 2px solid $cd-box;
+            border-radius: 100rem;
+            color: $cd-txt;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            outline: none;
+            padding: .5rem 1.5rem;
+            width: 75%;
+            transition: background-color 400ms;
+            &:focus {
+                border: 2px solid $cd-txt;
+            }
+            &:not(:focus):invalid{
+                background: $cd-danger;
+                border: 2px solid $cd-danger;
+                color: $cd-txt--invalid;
+            }
+        }
+    }
+}
+
+
+/* effet boop translate */
+.btn2{
+    &:hover + .boop{
+        transform: scale(1);
+        span{                                   /*necessite d'un block pour faire une action ou jouer avec display : inline block */
+            transform: translateY(0);           
+        }
+    }
+}
+
+.boop{
+    transform: scale(0.1);
+    transition: transform 330ms ease-in-out;
+    overflow: hidden;                           /*le texte n'apparaît pas tant qu'il n'est pas dans la boîte*/
+    span {
+        display: inline-block;                  /*necessite d'un block pour faire une action ou jouer avec display : inline block */
+        transform: translateY(250%);
+        transition: transform 280ms ease-out 50ms;
+    }
+}
+
+
+/* effet rotation */
+.btn3{
+     &:hover + .boxes {
+        & > .boxes--rotDegrees {                    /* rotation en degree point de depart */
+            transform: rotate(0deg);
+        }
+        & > .boxes--rotTurns {                      /* rotation en tour point de depart */
+             transform: rotate(0turn);
+        }
+    }
+}
+
+.boxes{
+    .boxes {
+        &--rotDegrees {
+             transform: rotate(-360deg);            /* rotation en degree point d arrive */
+             transition: transform 500ms ease-in-out;
+         }
+     
+         &--rotTurns {
+             transform: rotate(-1turn);             /* rotation en tour point d arrive */
+             transition: transform 500ms ease-in-out;
+         }
+     }
+}
+
+/* barre de progression */
+
+.btn4{
+    &:active{
+        & + .progress{
+            & > .progress__bar{
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+.progress {
+    &__bar {
+        transform-origin: left;                           /* deplace le centre de l effet ( mot ou pourcentage )*/
+        transform: scaleX(0);
+        transition: transform 4000ms cubic-bezier(.32, 0, .07, 1);
+    }
+}
+
+
+/* oppacity */
+
+$border-rad: 2rem;
+$clr-btn: #15DEA5;
+.btn5 {
+    border-radius: $border-rad;
+    background-color: $clr-btn;
+    position: relative;
+    z-index: 1;
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after {                                  /*pseudo-element */
+        content: "";                            /* ne pas oublier ! */
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;  
+        left: 0;
+        background-color: darken($clr-btn, 5);
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms;
+    }
+}
+
+
+/* keyframe */
+@keyframes progress-bar{
+    0% {
+        transform: scaleX(0);
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.4);
+    }
+    46% {
+        transform: scaleX(.81);
+    }
+    85%,100%{
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+.btn6 {
+    &:active {
+        & + .progress1{
+            & > .progress1__bar1 {
+                animation: progress-bar 1000ms;
+            }
+        }
+    }
+}
+.progress1 {
+    &__bar1 {
+        transform-origin: left;
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
